@@ -1,0 +1,79 @@
+{
+  "generatedAt": "2026-10-30T01:33:13.188Z",
+  "documents": 100000,
+  "note": "Measured on this deployment; results depend on hardware, cache state, dataset size and query shape.",
+  "results": [
+    {
+      "query": "User bookings, newest first",
+      "index": "{\"userId\":1,\"startTime\":-1}",
+      "before": {
+        "stage": "COLLSCAN",
+        "docsExamined": 100000,
+        "keysExamined": 0,
+        "returned": 20,
+        "millis": 49
+      },
+      "after": {
+        "stage": "IXSCAN",
+        "docsExamined": 20,
+        "keysExamined": 20,
+        "returned": 20,
+        "millis": 1
+      }
+    },
+    {
+      "query": "Slot overlap check",
+      "index": "{\"slotId\":1,\"startTime\":1}",
+      "before": {
+        "stage": "COLLSCAN",
+        "docsExamined": 100000,
+        "keysExamined": 0,
+        "returned": 0,
+        "millis": 47
+      },
+      "after": {
+        "stage": "IXSCAN",
+        "docsExamined": 104,
+        "keysExamined": 104,
+        "returned": 0,
+        "millis": 3
+      }
+    },
+    {
+      "query": "Vehicle number lookup",
+      "index": "{\"vehicleNumber\":1}",
+      "before": {
+        "stage": "COLLSCAN",
+        "docsExamined": 100000,
+        "keysExamined": 0,
+        "returned": 1,
+        "millis": 49
+      },
+      "after": {
+        "stage": "IXSCAN",
+        "docsExamined": 1,
+        "keysExamined": 1,
+        "returned": 1,
+        "millis": 1
+      }
+    },
+    {
+      "query": "Recent bookings by status",
+      "index": "{\"status\":1,\"createdAt\":-1}",
+      "before": {
+        "stage": "COLLSCAN",
+        "docsExamined": 100000,
+        "keysExamined": 0,
+        "returned": 20,
+        "millis": 60
+      },
+      "after": {
+        "stage": "IXSCAN",
+        "docsExamined": 20,
+        "keysExamined": 20,
+        "returned": 20,
+        "millis": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body { @apply bg-white text-navy font-sans antialiased; }
+.hero-title { font-family: 'Instrument Serif', serif; font-size: 48px; line-height: .95; letter-spacing: -1.5px; }
+@media (min-width: 768px) { .hero-title { font-size: 80px; letter-spacing: -2.46px; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; } }
